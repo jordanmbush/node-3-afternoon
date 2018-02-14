@@ -2,7 +2,7 @@
   "name": "swag-node-shop",
   "version": "1.0.0",
   "description": "Node 3 - Afternoon",
-  "main": "server/index.js",
+  "main": "./server/index.js",
   "dependencies": {
     "axios": "^0.16.2",
     "dotenv": "^5.0.0",

@@ -36,6 +36,7 @@ module.exports = {
         req.session.user.total -= deletedItem.price;
 
         res.status(200).send(req.session.user);
+        next();
 
     },
 
@@ -45,5 +46,6 @@ module.exports = {
         req.session.user.cart = [];
         req.session.user.total = 0;
         res.status(200).send(req.session.user);
+        next();
     },
 }
