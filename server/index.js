@@ -5,6 +5,8 @@ const app = express();
 require('dotenv').config();
 const { checkForInitialSession } = require('./middlewares/checkForSession');
 const sc = require('./controllers/swag_controller');
+const ac = require('./controllers/auth_controller');
+const cc = require('./controllers/cart_controller');
 
 app.use(bodyParser.json());
 
@@ -23,3 +25,12 @@ app.listen( PORT, () => console.log(`Hey Jordan. I\'m over here on port ${PORT}!
 
 // ENDPOINTS
 app.get('/api/swag', sc.read);
+//      AUTH_CONTROLLER
+app.post('/api/login', ac.login);
+app.post('/api/register', ac.register);
+app.post('/api/signout', ac.signout);
+app.get('/api/user', ac.getUser);
+//      CART_CONTROLLER
+app.post('/api/cart', cc.add);
+app.post('/api/cart/checkout', cc.checkout);
+app.delete('/api/cart', cc.remove);
